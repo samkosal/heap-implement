@@ -59,12 +59,27 @@ public class HeapRunner {
             } else if (choice.equals("k") || choice.equals("peek")) {
                 // TODO: Call your "peek" method and print the result
                 // Properly handle the case of an empty heap!
+                if (heap.isEmpty()) {
+                    System.out.println("Heap is empty!");
+                } else {
+                    System.out.println("Front: " + heap.peek());
+                }
 
             } else if (choice.equals("s") || choice.equals("size")) {
                 // TODO: Call your "size" method and print the result
+                if (heap.isEmpty()) {
+                    System.out.println("Heap is empty!");
+                } else {
+                    System.out.println("Size: " + heap.size());
+                }
 
             } else if (choice.equals("e") || choice.equals("empty")) {
                 // TODO: Call your "isEmpty" method and print the result
+                if (heap.isEmpty()) {
+                    System.out.println("Heap is empty!");
+                } else {
+                    System.out.println("Heap is not empty!");
+                }
 
             } else if (choice.equals("q") || choice.equals("quit")) {
                 break;

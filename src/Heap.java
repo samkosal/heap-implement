@@ -65,6 +65,52 @@ public class Heap {
     }
 
     public int pop() {
-        return heapArray.remove(heapArray.size() - 1);
+        // swap the head and last element of list
+        // remove the last element
+        //sift down
+        // the loop stops when the current value is less then both childs or if both childs dont exist
+        //
+
+        // [5, 10, 20, 30]
+        // [30, 10, 20, 5]
+        // [30, 10, 20]
+        // [10, 20, 30]
+
+        int Head = heapArray.get(0);
+        heapArray.set(0, heapArray.get(heapArray.size() - 1));
+        heapArray.remove(heapArray.size() - 1);
+
+        int i = 0;
+        // for this loop to run, both child must exist
+        while ( 2 * i + 1 < heapArray.size() || 2 * i + 2 < heapArray.size()) {
+            int leftChild = 2 * i + 1;
+            int rightChild = 2 * i + 2;
+            int smallest = i;
+
+            // if left side exist and left side smaller than current smallest index
+            if (leftChild < heapArray.size() && heapArray.get(leftChild) < heapArray.get(smallest)) {
+                //set the new smallest to left child index
+                smallest = leftChild;
+            }
+            if (rightChild < heapArray.size() && heapArray.get(rightChild) < heapArray.get(smallest)) {
+                smallest = rightChild;
+            }
+            if (smallest == i) break;
+
+            int temp = heapArray.get(i);
+            heapArray.set(i, heapArray.get(smallest));
+            heapArray.set(smallest, temp);
+            i = smallest;
+        }
+
+        return Head;
+    }
+
+    public int peek() {
+        return heapArray.get(0);
+    }
+
+    public int size() {
+        return heapArray.size();
     }
 }
