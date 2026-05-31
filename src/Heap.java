@@ -25,17 +25,17 @@ import java.util.List;
  *  - hold private instance variables
  */
 public class Heap {
-    private List<Integer> heapArray;
+    private static List<Integer> heapArray;
 
     public Heap() {
-        this.heapArray = new ArrayList<>(); // Initialize empty list
-        this.heapArray.add(10);        // Add values sequentially
-        this.heapArray.add(20);
-        this.heapArray.add(30);
+        heapArray = new ArrayList<>(); // Initialize empty list
+        heapArray.add(10);        // Add values sequentially
+        heapArray.add(20);
+        heapArray.add(30);
     }
 
     public void printList(){
-        System.out.println(this.heapArray);
+        System.out.println(heapArray);
     }
 
     public void addValue(int value) {
@@ -51,14 +51,20 @@ public class Heap {
             //position[(i - 1) / 2] = tempValue;
             //i = (i - 1) / 2
         
-        List<Integer> heapArray = this.heapArray;
         heapArray.add(value);
-        int i = this.heapArray.size() - 1;
+        int i = heapArray.size() - 1;
         while (i != 0 &&  heapArray.get(i) < heapArray.get((i - 1) / 2)) {
             int tempValue = heapArray.get(i);
             heapArray.set(i, heapArray.get((i - 1) / 2));
             heapArray.set((i - 1) / 2, tempValue);
             i = (i - 1) / 2;
         }
+    }
+    public boolean isEmpty() {
+        return heapArray.isEmpty();
+    }
+
+    public int pop() {
+        return heapArray.remove(heapArray.size() - 1);
     }
 }

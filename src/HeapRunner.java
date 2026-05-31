@@ -50,6 +50,11 @@ public class HeapRunner {
             } else if (choice.equals("p") || choice.equals("pop")) {
                 // TODO: Call your "pop" method and print the result.
                 // Properly handle the case of an empty heap!
+                if (heap.isEmpty()) {
+                    System.out.println("Heap is empty!");
+                } else {
+                    System.out.println("Popped: " + heap.pop());
+                }
 
             } else if (choice.equals("k") || choice.equals("peek")) {
                 // TODO: Call your "peek" method and print the result
