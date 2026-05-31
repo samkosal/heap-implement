@@ -21,12 +21,16 @@ public class HeapRunner {
         Scanner scanner = new Scanner(System.in);
 
         // TODO: Construct your Heap here.
+        Heap heap = new Heap();
 
         System.out.println("=== Heap Tester ===");
 
         while (true) {
             printMenu();
             String choice = scanner.nextLine().trim().toLowerCase();
+
+            //test
+            heap.printList();
 
             if (choice.equals("a") || choice.equals("add")) {
                 System.out.print("Enter an integer to add: ");
@@ -38,9 +42,10 @@ public class HeapRunner {
                     System.out.println("That wasn't a valid integer. Try again.");
                     continue;
                 }
- 
                 // TODO: Call your "add" method on the heap, passing in 'value'.
+                heap.addValue(value);
                 // TODO: Print message letting user know value was added
+                System.out.print(value + " was added");
  
             } else if (choice.equals("p") || choice.equals("pop")) {
                 // TODO: Call your "pop" method and print the result.
