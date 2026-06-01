@@ -25,13 +25,13 @@ import java.util.List;
  *  - hold private instance variables
  */
 public class Heap {
-    private static List<Integer> heapArray;
+    private List<Integer> heapArray;
 
     public Heap() {
         heapArray = new ArrayList<>(); // Initialize empty list
-        heapArray.add(10);        // Add values sequentially
-        heapArray.add(20);
-        heapArray.add(30);
+        // heapArray.add(10);        // Add values sequentially
+        // heapArray.add(20);
+        // heapArray.add(30);
     }
 
     public void printList(){
