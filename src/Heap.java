@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * A min-heap. 
@@ -75,13 +76,16 @@ public class Heap {
         // [30, 10, 20, 5]
         // [30, 10, 20]
         // [10, 20, 30]
+        if (isEmpty()) {
+            throw new NoSuchElementException("Heap is empty");
+        }
 
         int Head = heapArray.get(0);
         heapArray.set(0, heapArray.get(heapArray.size() - 1));
         heapArray.remove(heapArray.size() - 1);
 
         int i = 0;
-        // for this loop to run, both child must exist
+        // for this loop to run, at least one child
         while ( 2 * i + 1 < heapArray.size() || 2 * i + 2 < heapArray.size()) {
             int leftChild = 2 * i + 1;
             int rightChild = 2 * i + 2;
@@ -107,6 +111,9 @@ public class Heap {
     }
 
     public int peek() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Heap is empty");
+        }
         return heapArray.get(0);
     }
 
